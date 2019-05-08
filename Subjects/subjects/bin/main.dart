@@ -2,8 +2,15 @@ import 'package:rxdart/rxdart.dart';
 
 main() {
 
-  pubSubject();  
+  //pubSubject();  
+  behbSubject();
+}
 
+behbSubject(){
+  BehaviorSubject b = new BehaviorSubject();
+  b.sink.add(15);
+  b.stream.listen(print);
+  print(b.value);
 }
 
 pubSubject(){
