@@ -5,10 +5,12 @@ import 'package:rxdart/rxdart.dart';
 main() {
 
   BehaviorSubject<String> b = new BehaviorSubject<String>();
-  //Faz um filtro em que somente os nomes com o tamanho maior que 3
-  //serâo exibidos  
-  b.stream.where((valor) => valor.length > 3).listen(print);
-  b.sink.add("Israel");
-  b.sink.add("AA");
+  //Mostra apenas dados nao repetidos
+  b.stream.distinct().listen(print);
+  b.sink.add("ola");
+  b.sink.add("ola");
+  b.sink.add("israel");
+  b.sink.add("hudson");
+  b.sink.add("foi");
 }
 
