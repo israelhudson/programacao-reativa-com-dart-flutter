@@ -5,12 +5,7 @@ import 'package:rxdart/rxdart.dart';
 main() {
 
   BehaviorSubject<String> b = new BehaviorSubject<String>();
-  //ignora apenas 3 dados iniciais da lista
-  b.stream.skip(3).listen(print);
-  b.sink.add("1");
-  b.sink.add("2");
-  b.sink.add("3");
-  b.sink.add("4");
-  b.sink.add("5");
+  //Delay de 2 segundos para disparar o evento
+  Observable.timer(10, Duration(seconds: 2)).listen(print);
 }
 
