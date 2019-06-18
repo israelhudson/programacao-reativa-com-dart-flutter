@@ -6,11 +6,9 @@ main() {
 
   BehaviorSubject<String> b = new BehaviorSubject<String>();
   //Mostra apenas dados nao repetidos
-  b.stream.distinct().listen(print);
-  b.sink.add("ola");
-  b.sink.add("ola");
-  b.sink.add("israel");
-  b.sink.add("hudson");
-  b.sink.add("foi");
+  b.stream.debounce(Duration(milliseconds: 1)).listen(print);
+  b.sink.add("10");
+  b.sink.add("50");
+  b.sink.add("900");
 }
 
