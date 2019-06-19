@@ -5,11 +5,11 @@ import 'package:rxdart/rxdart.dart';
 main() {
 
   BehaviorSubject<String> b = new BehaviorSubject<String>();
-  //Especificando intervalor para mostrar dados
-  Observable
-  .range(1, 4)
-  .switchMap((item) => Observable
-  .timer(item, Duration(seconds: 1)))
-  .listen(print);
+  BehaviorSubject<String> c = new BehaviorSubject<String>();
+  
+  b.stream.pipe(c);
+  b.sink.add("Olá");
+  b.stream.listen(print);
+  c.stream.listen(print);
 }
 
