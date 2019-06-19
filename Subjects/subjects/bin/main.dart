@@ -7,8 +7,10 @@ main() {
   BehaviorSubject<String> b = new BehaviorSubject<String>();
   BehaviorSubject<String> c = new BehaviorSubject<String>();
   
-  b.stream.pipe(c);
+  b.stream.listen(c.sink.add);
+
   b.sink.add("Olá");
+
   b.stream.listen(print);
   c.stream.listen(print);
 }
